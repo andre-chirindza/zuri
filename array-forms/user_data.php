@@ -10,7 +10,7 @@
 
     $filename = 'files/userdata.csv';
 
-    $fp = fopen($filename, 'w');
+    $fp = fopen($filename, 'a');
 
     fputcsv(
         $fp, //Stream
