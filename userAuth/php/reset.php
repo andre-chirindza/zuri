@@ -1,15 +1,26 @@
 <?php
-if(isset($_POST['submit'])){
-    $email = //complete this;
-    $newpassword = //complete this;
+include_once('helpers.php');
 
-    resetPassword($email, $password);
+if(isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'])){
+    $email = $_POST['email'];
+    $newpassword = $_POST['password'];
+
+    resetPassword($email, $newpassword);
 }
 
 function resetPassword($email, $password){
-    //open file and check if the username exist inside
-    //if it does, replace the password
+    $users = getUsersFromFile();
+    updateUserInFile([]);
+
+    foreach ($users as $i => $user) {
+        if ($email === $user['email']) {
+            $user['password'] = $password;
+            $users[$i] = $user;
+        }
+        saveUserToFile($user);
+    }
+
+    echo "USER UPDATED";
 }
-echo "HANDLE THIS PAGE";
 
-
+?>
