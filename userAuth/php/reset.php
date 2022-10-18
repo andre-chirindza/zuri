@@ -9,6 +9,7 @@ if(isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password']
 }
 
 function resetPassword($email, $password){
+    $found = false;
     $users = getUsersFromFile();
     updateUserInFile([]);
 
@@ -16,11 +17,13 @@ function resetPassword($email, $password){
         if ($email === $user['email']) {
             $user['password'] = $password;
             $users[$i] = $user;
+            $found = true;
         }
         saveUserToFile($user);
     }
 
-    echo "USER UPDATED";
+    echo $found ? "User updated" : "User does not exist";
+
 }
 
 ?>

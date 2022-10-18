@@ -12,20 +12,26 @@
     }
 
     function loginUser($email, $password){
-
+        $found = false;
         $users = getUsersFromFile();
         foreach ($users as $user) {
-            print_r($user);
             if ($user['password'] === $password && $user['email'] == $email) {
                 session_start();
                 $_SESSION['user_login'] = [
-                    'email'=> $email, 
-                    'password' => $password
+                    'email'=> $user['email'], 
+                    'password' => $user['password'],
+                    'fullname' => $user['fullname']
                 ];
+                $found = true;
+                header('Location: https://localhost/zuri/userAuth/dashboard.php');
+                exit;
                 break;
-            }else{
-                echo "WRONG CREDENTIALS";
             }
+        }
+        if(!$found){
+            echo "WRONG CREDENTIALS";
+            header('Location: https://localhost/zuri/userAuth/forms/login.html');
+            exit;
         }
         /*
             Finish this function to check if username and password 

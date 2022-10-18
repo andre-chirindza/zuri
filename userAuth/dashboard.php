@@ -12,7 +12,16 @@
 <body>
   <?php
     session_start();
-    $fullname = isset($_SESSION['user_login']['email']) ?  $_SESSION['user_login']['email'] : null;
+    if(!isset($_SESSION['user_login'])){
+      header('Location: https://localhost/zuri/userAuth/forms/login.html');
+        exit;
+    }
+    
+    $user = [
+      'email' => isset($_SESSION['user_login']['email']) ?  $_SESSION['user_login']['email'] : null,
+      'fullname' => isset($_SESSION['user_login']['fullname']) ?  $_SESSION['user_login']['fullname'] : null
+    ]
+    
   ?>
 
 
@@ -30,7 +39,7 @@
   </div>
 </nav>
 <div class="container justify-content-center">
-     <h1 class="">Welcome to Zuri Authentication <?php echo $fullname ?></h1>
+     <h1 class="">Welcome to Zuri Authentication <strong><?php echo $user['fullname'] ?></strong></h1>
 </div>
    
 </body>

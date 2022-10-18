@@ -1,11 +1,10 @@
 <?php
 function logout(){
     session_start();
-    print_r($_SESSION['user_login']);
     if(isset($_SESSION['user_login'])){
         unset($_SESSION['user_login']);
         session_destroy();
-        header('Location: https://localhost/zuri/userAuth//forms/login.html');
+        header('Location: https://localhost/zuri/userAuth/forms/login.html');
         exit;
     }
     /*
@@ -14,5 +13,5 @@ if it does
 destroy the session and redirect to login page
 */
 }
-
+logout();
 // echo "HANDLE THIS PAGE";
