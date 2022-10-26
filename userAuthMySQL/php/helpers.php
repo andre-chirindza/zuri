@@ -4,6 +4,11 @@
         $button = isset($_SESSION['login_file']) ? 
             ('<a class="nav-link" href="logout.php">Logout</a>') :
             ('<a class="nav-link " href="../forms/login.html">Login</a>');
+        $goBack = isset($_SESSION['login_file']) ? 
+            ("<div class='d-flex flex-row-reverse'>
+                <a class='btn btn-secondary' href='http://localhost/zuri/userAuthMySQL/dashboard.php'>Go to Dashboard</a>
+              </div>"
+            ) : ("");
         $title = $page === null ? "Welcome" : "Register";
         $display = "";
         if(isset($_SESSION['error'])){
@@ -46,9 +51,7 @@
                 <div class='container'>
                     <div>$display</div>
                     <div>$message</div>
-                    <div class='d-flex flex-row-reverse'>
-                        <a class='btn btn-secondary' href='http://localhost/zuri/userAuthMySQL/dashboard.php'>Go to Dashboard</a>
-                    </div>
+                    $goBack
                 </div>
             </body>
             </html>
