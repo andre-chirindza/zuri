@@ -7,9 +7,9 @@
 - Arrays and Forms (<[array-forms]>)
 - User Auth - Sessions (<[userAuth]>)
 - User Auth - Databases (<[userAuthMySQL]>)
-- User Auth OOP - Databases (<[userAuthOOPMYSQL]>)
+- User Auth OOP - Databases (<[UserAuthOOPMYSQL]>)
 
 [array-forms]: https://github.com/andre-chirindza/zuri/tree/master/array-forms
 [userAuth]: https://github.com/andre-chirindza/zuri/tree/master/userAuth
 [userAuthMySQL]: https://github.com/andre-chirindza/zuri/tree/master/userAuthMySQL
-[userAuthOOPMYSQL]: https://github.com/andre-chirindza/zuri/tree/master/userAuthOOPMYSQL
+[userAuthOOPMYSQL]: https://github.com/andre-chirindza/zuri/tree/master/UserAuthOOPMYSQL
